@@ -31,3 +31,8 @@ def add_records(request):
         else:
             messages.error(request, 'There was an error, Please Try Again')
             return redirect('add_employee')
+def delete_employee(request, id):
+    employee = Employee.objects.get(id=id)
+    employee.delete()
+    messages.success(request, 'Emloyee deleted successfully')
+    return redirect('index')
