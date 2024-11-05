@@ -12,30 +12,35 @@
 <body>
     <div class="container p-5">
        <div class=" d-flex justify-content-center align-items-center border rounded shadow p-5">
-        <form class="row g-3">
+        <form class="row g-3" action="{% url 'add_records' %}" method="POST">
+          <div class="col-md-12">
+            <h2>Add New Employee</h2>
+            <p> Enter all the informations for the employee</p>
+          </div>
+          {% csrf_token %}
             <div class="col-md-6">
               <label for="inputfirstname" class="form-label">Firstname</label>
-              <input type="text" class="form-control" id="inputfirstname">
+              <input type="text" class="form-control" id="inputfirstname" name="firstname">
             </div>
             <div class="col-md-6">
               <label for="inputlastname" class="form-label">Lastname</label>
-              <input type="text" class="form-control" id="inputlastname">
+              <input type="text" class="form-control" id="inputlastname" name="lastname">
             </div>
             <div class="col-12">
               <label for="inputemail" class="form-label">Email</label>
-              <input type="email" class="form-control" id="inputemail">
+              <input type="email" class="form-control" id="inputemail" name="email">
             </div>
             <div class="col-6">
               <label for="inputtelephone" class="form-label">Telephone</label>
-              <input type="text" class="form-control" id="inputtelephone">
+              <input type="text" class="form-control" id="inputtelephone" name="telephone">
             </div>
             <div class="col-md-6">
               <label for="inputpostal" class="form-label">Postal Code</label>
-              <input type="text" class="form-control" id="inputpostal">
+              <input type="text" class="form-control" id="inputpostal" name="postalcode">
             </div>
             <div class="col-md-12">
                 <label for="inputposition" class="form-label">Position</label>
-                <input type="text" class="form-control" id="inputposition">
+                <input type="text" class="form-control" id="inputposition" name="position">
             </div>
             <div class="col-12">
               <button type="submit" class="btn btn-success">Add</button>
