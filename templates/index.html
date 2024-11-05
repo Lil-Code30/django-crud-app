@@ -20,7 +20,7 @@
                 <p> Python Django project for implementing CRUD operations</p>
               </div>
               <div class="col-md">
-                <a href="#addModel" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New </span></a>
+                <a href="" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New </span></a>
                 
               </div>
             </div>
@@ -37,17 +37,25 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>jquery.scrollTo.js</td>
-                <td>Available</td>
-                <td>0:33</td>
-                <td>$55</td>
-                <td>$55</td>
-                <td>
-                  <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                  <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                </td>
-              </tr>
+              {% if employees %}
+                {% for employee in employees%}
+                  <tr>
+                    <td>{{employee.firstname}} {{employee.lastname}}</td>
+                    <td>{{employee.email}}</td>
+                    <td>{{employee.telephone}}</td>
+                    <td>{{employee.postal_code}}</td>
+                    <td>{{employee.position}}</td>
+                    <td>
+                      <a href="" ><button type="button" class="btn btn-warning btn-sm" value="{{employee.id}}"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></button></a>
+                      <a href="" ><button type="button" class="btn btn-danger btn-sm" value="{{employee.id}}"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></button></a>
+                    </td>
+                  </tr>
+                {% endfor %}
+              {% else %}
+                  <tr>
+                    <td colspan="6" class="text-center">No employees Found</td>
+                  </tr>
+              {% endif %}
             </tbody>
           </table>
         </div>
