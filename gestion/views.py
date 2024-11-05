@@ -36,3 +36,11 @@ def delete_employee(request, id):
     employee.delete()
     messages.success(request, 'Emloyee deleted successfully')
     return redirect('index')
+
+def update_employee(request, id):
+    employee = Employee.objects.get(id=id)
+
+    return  render(request, 'update_employee.html', {'employee':employee})
+
+def update_records(request, id):
+    pass
