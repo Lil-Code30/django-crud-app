@@ -43,4 +43,28 @@ def update_employee(request, id):
     return  render(request, 'update_employee.html', {'employee':employee})
 
 def update_records(request, id):
-    pass
+    if request.method  == 'POST':
+        firstname = request.POST['firstname']
+        lastname = request.POST['lastname']
+        email = request.POST['email']
+        telephone = request.POST['telephone']
+        postal_code = request.POST['postalcode']
+        position = request.POST['position']
+
+        employee = Employee.objects.get(id=id)
+
+        employee.firstname = firstname
+        employee.lastname = lastname
+        employee.email = email
+        employee.telephone = telephone
+        employee.postal_code = postal_code
+        employee.position = position
+
+        employee.save()
+
+        if employee.save:
+            messages.success(request, 'Employee\'s Informations updated successfully')
+            return redirect('index')
+        else:
+            messages.error(request, 'There was an error, Please Try Again')
+            return redirect('update_employee')

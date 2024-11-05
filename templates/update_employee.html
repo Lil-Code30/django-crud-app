@@ -12,10 +12,10 @@
 <body>
     <div class="container p-5">
        <div class=" d-flex justify-content-center align-items-center border rounded shadow p-5">
-        <form class="row g-3" action="{% url 'update_records' %}" method="POST">
+        <form class="row g-3" action="{% url 'update_records' employee.id %}" method="POST">
           <div class="col-md-12">
             <h2>Update Employee</h2>
-            <p> Update the informations of the employee</p>
+            <p> Update the informations of <strong>{{employee.firstname}} {{employee.lastname}}</strong></p>
           </div>
           {% csrf_token %}
             <div class="col-md-6">
